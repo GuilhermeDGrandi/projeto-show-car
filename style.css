@@ -16,14 +16,23 @@ body {
 
 header {
     position: fixed;
-    display: flex;
-    justify-content: space-between;
-    width: 800px;
     left: 50%;
     transform: translateX(-50%);
+    display: grid;
+    align-items: center;
+   
     z-index: 2;
+    
+    & nav{
+        & ul{
+            display: grid;
+            grid-template-columns: repeat(3, 200px);
+        }
+    }
 
 }
+
+
 
 
 section {
@@ -50,6 +59,18 @@ section {
 
                 & img {
                     transform: rotate(-15deg);
+                }
+
+                &::before{
+                    content: '';
+                    position: absolute;
+                    background-color: #000;
+                    width: 100%;
+                    height: 100px;
+                    top: 150%;
+                    left: 30px;
+                    border: 50%;
+                    filter: blur(50px);
                 }
 
             }
@@ -188,9 +209,9 @@ section {
 
 
 section {
-
+ 
     & .list {
-
+        
 
         & .item {
 
@@ -203,7 +224,7 @@ section {
                 & img {
                     transform: rotate(0);
                     transition: 0.5s;
-                    transition-delay: 0.3;
+                    transition-delay: 0.5;
 
                     & .content {
 
@@ -211,9 +232,10 @@ section {
                         h2,
                         .description,
                         .information {
-                            transform: translateX(200px);
+                            transform: translateX(200vw);
                             transition: 0.7s;
                             transition-delay: 0.3s;
+                            opacity: 0;
 
                         }
 
@@ -245,13 +267,15 @@ section {
 
         & .active {
             transform: translateX(0);
-            transition: 0.5;
+            transition: 0.8;
+            
             opacity: 1;
 
             & .car-img {
 
                 & img {
                     transform: rotate(-20deg);
+                    transition: 01s;
 
                     & .content {
 
@@ -260,7 +284,10 @@ section {
                         .description,
                         .information {
                             transform: translateX(0);
+                            opacity: 1;
+                            
                         }
+                        
                     }
 
                 }
